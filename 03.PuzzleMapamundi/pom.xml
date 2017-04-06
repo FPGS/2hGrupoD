@@ -10,11 +10,11 @@
 
 
 	<groupId>es.salesianos.edu</groupId>
-	<artifactId>Arkanoid</artifactId>
+	<artifactId>PuzzleMundo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Arkanoid Game</name>
+	<name>Puzzle Mapamundi</name>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
