@@ -2,40 +2,35 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>es.salesianos.edu</groupId>
+		<artifactId>root</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+
 	<groupId>es.salesianos.edu</groupId>
-	<artifactId>root</artifactId>
+	<artifactId>arquero</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
-	<name>root</name>
+	<name>arquero</name>
 
-
-	<modules>
-		<module>Arkanoid</module>
-		<module>botones</module>
-		<module>arquero</module>
-	</modules>
-	
-	
-	<dependencyManagement>
-		<dependencies>
+	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>2.6.6</version>
 		</dependency>
 
 
 	</dependencies>
-	
-	</dependencyManagement>
+
 
 </project>

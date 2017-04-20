@@ -5,15 +5,13 @@
 	<groupId>es.salesianos.edu</groupId>
 	<artifactId>root</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<name>root</name>
 
 
 	<modules>
 		<module>Arkanoid</module>
-		<module>botones</module>
-		<module>arquero</module>
 	</modules>
 	
 	
