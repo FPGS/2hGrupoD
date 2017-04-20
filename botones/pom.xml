@@ -9,7 +9,7 @@
 <artifactId>Botones</artifactId>
 <version>1.0.0-SNAPSHOT</version>
 <packaging>jar</packaging>
-<name>Botones Game</name>
+<name>Buttons Game</name>
 <dependencies>
 <!--  https://mvnrepository.com/artifact/junit/junit  -->
 <dependency>
