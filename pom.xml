@@ -12,9 +12,12 @@
 
 	<modules>
 		<module>Arkanoid</module>
+		<module>arquero</module>
+		<module>botones</module>
+		<module>03.PuzzleMapamundi</module>
 	</modules>
-	
-	
+
+
 	<dependencyManagement>
 		<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -33,7 +36,7 @@
 
 
 	</dependencies>
-	
+
 	</dependencyManagement>
 
 </project>
