@@ -12,6 +12,10 @@
 
 	<modules>
 		<module>Arkanoid</module>
+		<module>arquero</module>
+		<module>botones</module>
+		<module>PuzzleMapamundi</module>
+
 	</modules>
 	
 	

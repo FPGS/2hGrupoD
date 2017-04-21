@@ -6,10 +6,10 @@
 <version>1.0.0-SNAPSHOT</version>
 </parent>
 <groupId>es.salesianos.edu</groupId>
-<artifactId>Botones</artifactId>
+<artifactId>arquero</artifactId>
 <version>1.0.0-SNAPSHOT</version>
 <packaging>jar</packaging>
-<name>Botones Game</name>
+<name>arquero Game</name>
 <dependencies>
 <!--  https://mvnrepository.com/artifact/junit/junit  -->
 <dependency>

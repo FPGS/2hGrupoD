@@ -5,12 +5,11 @@
 <artifactId>root</artifactId>
 <version>1.0.0-SNAPSHOT</version>
 </parent>
-
 <groupId>es.salesianos.edu</groupId>
-<artifactId>botones</artifactId>
+<artifactId>PuzzleMapamundi</artifactId>
 <version>1.0.0-SNAPSHOT</version>
 <packaging>jar</packaging>
-<name>Botones Game</name>
+<name>puzzle Game</name>
 <dependencies>
 <!--  https://mvnrepository.com/artifact/junit/junit  -->
 <dependency>
