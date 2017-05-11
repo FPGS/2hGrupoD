@@ -1,26 +1,36 @@
-import java.awt.*;
-import java.applet.*;
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
 
 public class Globo extends Rectangle {
 
-	Image globo;
+	private Image globo;
 	int velY;
 	
     public Globo(Image img) {
 		super((int)(Math.random()*150)+900,(int)(Math.random()*700)+500,100,100);		    
-    	globo = img;
+		setGlobo(img);
     	velY = (int)(Math.random()*5)+3;
     
     } 
     
     public void dibujar (Graphics g, Applet a){
-    	g.drawImage(globo,x,y,width,height,a);
+		g.drawImage(getGlobo(), x, y, width, height, a);
     }
     
     public void move (){
 		y-= velY;
 		if(y<-100)
 		y=1200;
-    } 
+	}
+
+	public Image getGlobo() {
+		return globo;
+	}
+
+	public void setGlobo(Image globo) {
+		this.globo = globo;
+	}
     
 }  

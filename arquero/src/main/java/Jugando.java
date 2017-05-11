@@ -1,28 +1,27 @@
-import java.awt.Graphics;
-import java.awt.Event;
+import java.applet.Applet;
 import java.awt.Color;
+import java.awt.Event;
+import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Rectangle;
-import java.applet.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Jugando extends Applet implements Runnable{
 	public static final int GLOB = 20;
-	Image imagen,ar,fl,gl,fon;
-	Graphics noseve;
+	Image buffer,arqueroImage,fl,gl,fon;
+	Graphics graphics;
 	List <Flecha> flechas;
 	List <Globo> globos;
-	Thread animacion;
+	Thread animacionThread;
 
 	Arquero arquero;
     public void init(){
     
 	fon = getImage(getDocumentBase(),"imagenes/fondo.jpg");
     
-    ar = getImage(getDocumentBase(),"imagenes/arquero.gif");
-    arquero = new Arquero(ar,20,20,120,100);
+    arqueroImage = getImage(getDocumentBase(),"imagenes/arquero.gif");
+    arquero = new Arquero(arqueroImage,20,20,120,100);
 	
 	fl = getImage(getDocumentBase(),"imagenes/flecha.gif");
 	flechas = new ArrayList<Flecha>();
@@ -32,28 +31,25 @@ public class Jugando extends Applet implements Runnable{
 	for(int i = 0; i<GLOB; i++)
 		globos.add(new Globo(gl));
 		
-	imagen = this.createImage(1300,700);
-	noseve = imagen.getGraphics();
+	buffer = this.createImage(1300,700);
+	graphics = buffer.getGraphics();
 		
 	}
 	
-	public void start(){
-		animacion = new Thread(this);
-		animacion.start();//Llama metodo run
-	}
-	
+
 	public void paint(Graphics g){
-		noseve.setColor(Color.black);
-		noseve.fillRect(0,0,1300,700);
-		noseve.drawImage(fon,0,0,this);
-		arquero.dibujar(noseve,this);
-		for (int i =0; i<flechas.size(); i++)
-			flechas.get(i).dibujar(noseve,this);
+		graphics.setColor(Color.black);
+		graphics.fillRect(0,0,1300,700);
+		graphics.drawImage(fon,0,0,this);
+		arquero.dibujar(graphics,this);
+		for (Flecha flecha : flechas) {
+			flecha.dibujar(graphics, this);
+		}
 		for	(int i =0; i<globos.size(); i++)
-			globos.get(i).dibujar(noseve,this);
+			globos.get(i).dibujar(graphics,this);
 		
 		
-	g.drawImage(imagen,0,0,this);
+		g.drawImage(buffer,0,0,this);
    	}
    	
    	public void update (Graphics g){
@@ -79,10 +75,8 @@ public class Jugando extends Applet implements Runnable{
 						}
 			repaint();	
 			
-    	try{
-    		Thread.sleep(10);
-    	}catch(InterruptedException e){};
-    	}
+    	
+		}
     }
       	
 	public boolean mouseMove (Event ev, int x, int y){
