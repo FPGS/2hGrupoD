@@ -49,6 +49,30 @@ public class Mundo{
             datos=scan.next();
         }
     }
+    
+    public void tableroOpcion2(){
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Introduzca el nombre del fichero .mat");
+        String nombre=scan.next();
+        try{
+            String fichero = "C://Users/Lydia/Desktop/" + nombre + ".mat";
+            FileInputStream in = new FileInputStream(fichero);
+            int leido;
+            for (int i=0;i<30;i++){
+                for(int j=0;j<30 && (leido=in.read())!=-1 ;j++){
+                    char c = (char) leido;
+                    tablero[i][j]=c;
+                }
+                in.read();
+                in.read();
+            }      
+            in.close();
+        } catch (FileNotFoundException e){
+            System.out.println("No existe el fichero");
+        }catch (IOException e){
+            System.out.println("Error E/S");
+        }
+    }
 
     public void tableroOpcion3(){
         try{
