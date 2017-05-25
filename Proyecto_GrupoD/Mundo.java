@@ -19,6 +19,49 @@ public class Mundo{
         return tablero[f][c];
     }
 
+    public void tableroOpcion3(){
+        try{
+            Scanner scan=new Scanner(System.in);
+            System.out.println("Introduzca el nombre del fichero .lst");
+            String nombre=scan.next();
+            String fichero = "C:/Users/Lydia/Documents/" + nombre + ".lst";
+            FileInputStream in = new FileInputStream(fichero);
+            Scanner scann = new Scanner (in);
+            String datos = scann.next();
+            while(scann.hasNextLine() == true){
+                int y;
+                char color;
+                int x=datos.charAt(1)-48;
+                if(datos.charAt(2)==','){
+                    y=datos.charAt(3)-48;
+                    if(datos.charAt(4)==','){
+                        color=datos.charAt(5);
+                    }else{
+                        y=(y*10)+(datos.charAt(4)-48);
+                        color=datos.charAt(6);
+                    }
+                }else{
+                    x=(x*10)+(datos.charAt(2)-48);
+                    y=datos.charAt(4)-48;
+                    if(datos.charAt(5)==','){
+                        color=datos.charAt(6);
+                    }else{
+                        y=(y*10)+(datos.charAt(5)-48);
+                        color=datos.charAt(7);
+                    }
+                }
+                tablero[x][y]=color;
+                datos=scann.nextLine();
+                datos=scann.next();
+            }
+            in.close();
+        } catch (FileNotFoundException e){
+            System.out.println("No existe el fichero");
+        }catch (IOException e){
+            System.out.println("Error E/S");
+        }
+    }
+
 
      public int numeroVivasAlrededor(int x, int y){
         int contadorVivas = 0;
