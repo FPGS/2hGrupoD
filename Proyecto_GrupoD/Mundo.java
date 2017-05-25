@@ -168,4 +168,418 @@ public class Mundo{
         return contadorVivas;
     }
 
+    public void estadoPosicionSiguiente(){
+        for(int x=0; x<30; x++){
+            for(int y=0; y<30; y++){
+                if(x==0&&y==0){
+                    if(tablero[0][0]=='C' || tablero[0][0]=='N'){
+                        if(numeroVivasAlrededor(0,0)<=1){
+                            tablero[x][y]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(0,0)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[1][1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[1][0]=='C'){
+                                cian++;
+                            }
+                            if(tablero[0][1]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[1][1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[0][1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[1][0]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[0][0]='N';
+                            } else {
+                                tablero[0][0]='C';
+                            }
+
+                        }
+                    }
+                } else if(x==0&&y==29){
+                    if(tablero[0][29]=='C' || tablero[0][29]=='N'){
+                        if(numeroVivasAlrededor(0,29)<=1){
+                            tablero[y][x]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(29,0)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[0][28]=='C'){
+                                cian++;
+                            }
+                            if(tablero[1][29]=='C'){
+                                cian++;
+                            }
+                            if(tablero[1][28]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[0][28]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[1][29]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[1][28]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[0][29]='N';
+                            } else {
+                                tablero[0][29]='C';
+                            }
+
+                        }
+                    }
+                }else if(y==29&&x==29){
+                    if(tablero[29][29]=='C' || tablero[29][29]=='N'){
+                        if(numeroVivasAlrededor(29,29)<=1){
+                            tablero[29][29]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(29,29)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[28][28]=='C'){
+                                cian++;
+                            }
+                            if(tablero[28][29]=='C'){
+                                cian++;
+                            }
+                            if(tablero[29][28]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[28][28]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[28][29]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[29][28]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[29][29]='N';
+                            } else {
+                                tablero[29][29]='C';
+                            }
+
+                        }
+                    }
+                }else if(x==29&&y==0){
+                    if(tablero[29][0]=='C' || tablero[29][0]=='N'){
+                        if(numeroVivasAlrededor(29,0)<=1){
+                            tablero[29][0]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(29,0)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[28][0]=='C'){
+                                cian++;
+                            }
+                            if(tablero[28][1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[29][1]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[28][0]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[28][1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[29][1]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[29][0]='N';
+                            } else {
+                                tablero[29][0]='C';
+                            }
+
+                        }
+                    }
+                }else if(y==0){
+                    if(tablero[x][0]=='C' || tablero[x][0]=='N'){
+                        if(numeroVivasAlrededor(x,0)<=1 || numeroVivasAlrededor(x,0)>=4){
+                            tablero[x][0]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(x,0)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[x-1][0]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][0]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x][1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x-1][1]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[x-1][0]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][0]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x-1][1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x][1]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[x][0]='N';
+                            } else {
+                                tablero[x][0]='C';
+                            }
+                        }
+                    }
+                }else if(y==29){
+                    if(tablero[x][29]=='C' || tablero[x][29]=='N'){
+                        if(numeroVivasAlrededor(x,29)<=1 || numeroVivasAlrededor(x,29)>=4){
+                            tablero[x][29]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(x,29)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[x-1][29]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][29]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x][28]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][28]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x-1][28]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[x-1][29]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][29]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x-1][28]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][28]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x][28]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[x][29]='N';
+                            } else {
+                                tablero[x][29]='C';
+                            }
+                        }
+                    }
+                }else if(x==0){
+                    if(tablero[0][y]=='C' || tablero[0][y]=='N'){
+                        if(numeroVivasAlrededor(0,y)<=1 || numeroVivasAlrededor(0,y)>=4){
+                            tablero[0][y]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(0,y)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[0][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[0][y+1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[1][y+1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[1][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[1][y]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[0][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[0][y+1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[1][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[1][y]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[1][y+1]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[0][y]='N';
+                            } else {
+                                tablero[0][y]='C';
+                            }
+                        }
+                    }
+                }else if(x==29){
+                    if(tablero[29][y]=='C' || tablero[29][y]=='N'){
+                        if(numeroVivasAlrededor(29,y)<=1 || numeroVivasAlrededor(29,y)>=4){
+                            tablero[29][y]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(29,y)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[29][y+1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[29][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[28][y+1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[28][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[28][y]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[29][y+1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[29][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[28][y+1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[28][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[28][y]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[29][y]='N';
+                            } else {
+                                tablero[29][y]='C';
+                            }
+                        }
+                    }
+                }else{
+                    if(tablero[x][y]=='C' || tablero[x][y]=='N'){
+                        if(numeroVivasAlrededor(x,y)<=1 || numeroVivasAlrededor(x,y)>=4){
+                            tablero[x][y]='X';                  
+                        }  
+                    }else {
+                        if(numeroVivasAlrededor(x,y)==3){
+                            int naranja=0;
+                            int cian=0;
+                            if(tablero[x-1][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][y-1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x-1][y]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][y]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x-1][y+1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x][y+1]=='C'){
+                                cian++;
+                            }
+                            if(tablero[x+1][y+1]=='C'){
+                                cian++;
+                            }
+
+                            if(tablero[x-1][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][y-1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x-1][y]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][y]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x-1][y+1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x][y+1]=='N'){
+                                naranja++;
+                            }
+                            if(tablero[x+1][y+1]=='N'){
+                                naranja++;
+                            }
+
+                            if(cian<naranja){
+                                tablero[x][y]='N';
+                            } else {
+                                tablero[x][y]='C';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
