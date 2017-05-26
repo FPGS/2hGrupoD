@@ -42,6 +42,7 @@ public class BTest {
 				return actual[0] == 'a';
 			}
 		};
+
 		// check that first character of the array is A,
 		// and that the other two arguments are 0 and 1
 		Mockito.verify(mock).write(Mockito.argThat(arrayStartingWithA), Mockito.eq(0), Mockito.eq(1));
